@@ -11,6 +11,7 @@ func TestCrasher(t *testing.T) {
 		Crasher()
 		return
 	}
+	NotCrasher()
 	cmd := exec.Command(os.Args[0], "-test.run=TestCrasher")
 	cmd.Env = append(os.Environ(), "BE_CRASHER=1")
 	err := cmd.Run()
